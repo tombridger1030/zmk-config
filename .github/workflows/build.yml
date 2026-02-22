@@ -34,7 +34,7 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (Lily58 Left)
-        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=lily58_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b nice_nano/nrf52840/zmk -- -DSHIELD=lily58_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Lily58 Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
@@ -45,7 +45,7 @@ jobs:
           name: lily58_left-nice_nano_v2-zmk
           path: lily58_left-nice_nano_v2-zmk.uf2
       - name: West Build (Lily58 Right)
-        run: west build --pristine -s zmk/app -b nice_nano_v2 -- -DSHIELD=lily58_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build --pristine -s zmk/app -b nice_nano/nrf52840/zmk -- -DSHIELD=lily58_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Lily58 Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
