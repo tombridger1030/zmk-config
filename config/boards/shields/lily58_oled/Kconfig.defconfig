@@ -1,9 +1,5 @@
 if SHIELD_LILY58_OLED
 
-config LV_USE_ANIMIMG
-    bool
-    default y
-
 config LV_FONT_MONTSERRAT_12
     bool
     default y
