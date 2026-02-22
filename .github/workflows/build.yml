@@ -55,3 +55,12 @@ jobs:
         with:
           name: lily58_right-nice_nano_v2-zmk
           path: lily58_right-nice_nano_v2-zmk.uf2
+      - name: West Build (Settings Reset)
+        run: west build --pristine -s zmk/app -b nice_nano/nrf52840/zmk -- -DSHIELD=settings_reset
+      - name: Rename settings_reset.uf2
+        run: cp build/zephyr/zmk.uf2 settings_reset-nice_nano_v2.uf2
+      - name: Archive (Settings Reset)
+        uses: actions/upload-artifact@v4
+        with:
+          name: settings_reset-nice_nano_v2
+          path: settings_reset-nice_nano_v2.uf2
